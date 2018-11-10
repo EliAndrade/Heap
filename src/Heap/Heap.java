@@ -14,14 +14,15 @@ public class Heap<K extends Comparable<K>, V> {
     public Heap(TipoHeap tipo) {
         this.capacidade = 2;
         this.tamanho = 0;
-        this.vetor = (No<K, V>[]) new Object[capacidade];
+        this.vetor = new No[capacidade];
         this.tipo = tipo;
     }
 
     void aumentarCapacidade() {
         if (tamanho == capacidade) {
             capacidade *= 2;
-            No<K, V> novoVetor[] = (No<K, V>[]) new Object[capacidade];
+            No<K, V> novoVetor[];
+            novoVetor = new No[capacidade];
             System.arraycopy(vetor, 0, novoVetor, 0, tamanho);
             vetor = novoVetor;
         }
